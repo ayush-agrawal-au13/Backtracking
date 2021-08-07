@@ -14,6 +14,12 @@
     #copyright{
       margin-top: 0px;
     }
+    .pre-style{
+      color:rgb(102,18,16);
+      font-size: 18px;
+      font-style: bold;
+    }
+
 
   </style>
 
@@ -29,9 +35,6 @@
   
   <center><img src="https://www.cis.upenn.edu/~matuszek/cit594-2012/Pages/backtracking_files/treesearch.gif" alt="Backtracking Iamge"/></center>
 
-  <p>In this example we drew a picture of a tree. The tree is an abstract model of the possible sequences of choices we could make. There is also a data structure called a tree, but usually we don't have a data structure to tell us what choices we have. (If we do have an actual tree data structure, backtracking on it is called <i>depth-first tree searching</i>.)
-  </p>
-
   <ol>
     <li>Starting at Root, your options are A and B. You choose A.</li>
     <li>At A, your options are C and D. You choose C.</li>
@@ -44,9 +47,40 @@
     <li>E is good. Congratulations!</li>
   </ol>
 
+  <p>In this example we drew a picture of a tree. The tree is an abstract model of the possible sequences of choices we could make. There is also a data structure called a tree, but usually we don't have a data structure to tell us what choices we have. (If we do have an actual tree data structure, backtracking on it is called <i>depth-first tree searching</i>.)
+  </p>
+
+  <h3>The backtracking algorithm.</h3>
+
+  <p>Here is the algorithm (in pseudocode) for doing backtracking from a given node n:</p>
+
+  <pre class="pre-style"> 
+    boolean solve(Node n) {
+    if n is a leaf node {
+        if the leaf is a goal node, return true
+        else return false
+    } else {
+        for each child c of n {
+            if solve(c) succeeds, return true
+        }
+        return false
+      }
+   }
+  </pre>
+
+  <p>Notice that the algorithm is expressed as a boolean function. This is essential to understanding the algorithm. If <span class="pre-style">solve(n)</span> is true, that means node <span class="pre-style">n</span> is part of a solution--that is, node <span class="pre-style">n</span> is one of the nodes on a path from the root to some goal node. We say that <span class="pre-style">n</span> is solvable. If <span class="pre-style">solve(n)</span> is false, then there is no path that includes <span class="pre-style">n</span> to any goal node.</p>
+
+  <p>How does this work?</p>
+
+  <ul>
+    <li>If any child of <span class="pre-style">n</span> is solvable, then <span class="pre-style">n</span> is solvable.</li>
+    <li>If no child of <span class="pre-style">n</span> is solvable, then <span class="pre-style">n</span> is not solvable.</li>
+  </ul>
+
+
   <br><br>
 
-  <table border="1px" align="center" cellpadding="5px" width="400px">
+  <!-- <table border="1px" align="center" cellpadding="5px" width="400px">
     <thead bgcolor="#cccccc">
       <th bgcolor="white"></th>
       <th>2 by 3 map</th>
@@ -68,7 +102,7 @@
       </tr>
       
     </tbody>
-  </table>
+  </table> -->
 
 
 
