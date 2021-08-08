@@ -1,0 +1,21 @@
+  h1 {
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+    #copyright{
+      margin-top: 0px;
+    }
+    .pre-style{
+      color:rgb(102,18,16);
+      font-size: 18px;
+      font-style: bold;
+    }
+
+    .blue-color{
+      color: blue;
+    }
+
+    .center-div{
+      display:flex;
+      justify-content: center;
+    }
